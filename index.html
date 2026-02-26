@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PlaisirBois — Bois de chauffage livré dans les Cantons-de-l'Est</title>
+  <meta name="description" content="Commandez du bois franc de qualité (bouleau) livré directement chez vous dans les Cantons-de-l'Est, Québec." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Reset & Base ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brown-dark:   #3B2314;
+      --brown-mid:    #5C3317;
+      --amber:        #D4792A;
+      --amber-light:  #E8922F;
+      --amber-dark:   #B5621E;
+      --cream:        #FAF6F0;
+      --cream-dark:   #F0E8D8;
+      --text-dark:    #2A1A0E;
+      --text-mid:     #5A3E28;
+      --text-light:   #8C6A4A;
+      --white:        #FFFFFF;
+      --red:          #C0392B;
+      --green:        #27AE60;
+      --border:       #D4B896;
+      --shadow:       rgba(59,35,20,0.15);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: var(--cream);
+      color: var(--text-dark);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Merriweather', serif;
+      color: var(--brown-dark);
+    }
+
+    /* ─── Hero ─────────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(160deg, var(--brown-dark) 0%, var(--brown-mid) 60%, #7A4520 100%);
+      color: var(--cream);
+      text-align: center;
+      padding: 60px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+      pointer-events: none;
+    }
+
+    .hero-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .hero-icon {
+      font-size: 52px;
+      line-height: 1;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      color: var(--amber-light);
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      margin-bottom: 0;
+    }
+
+    .hero-tagline {
+      font-family: 'Merriweather', serif;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: var(--cream-dark);
+      margin-top: 14px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+      font-style: italic;
+      opacity: 0.92;
+    }
+
+    .hero-badges {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .badge {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 0.82rem;
+      color: var(--cream);
+      font-weight: 500;
+    }
+
+    .hero-arrow {
+      margin-top: 40px;
+      color: var(--amber);
+      font-size: 1.8rem;
+      animation: bounce 1.8s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(8px); }
+    }
+
+    /* ─── Order Section ─────────────────────────────────────── */
+    .order-section {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 48px 20px 64px;
+    }
+
+    .section-title {
+      font-size: clamp(1.5rem, 4vw, 1.9rem);
+      color: var(--brown-dark);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-mid);
+      font-size: 0.95rem;
+      margin-bottom: 36px;
+    }
+
+    /* ─── Product Cards ─────────────────────────────────────── */
+    .product-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 480px) {
+      .product-cards { grid-template-columns: 1fr; gap: 8px; }
+    }
+
+    .product-card {
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      user-select: none;
+      position: relative;
+    }
+
+    .product-card:hover {
+      border-color: var(--amber);
+      box-shadow: 0 4px 16px var(--shadow);
+      transform: translateY(-2px);
+    }
+
+    .product-card.selected {
+      border-color: var(--amber);
+      background: #FFF5EC;
+      box-shadow: 0 0 0 3px rgba(212,121,42,0.2), 0 4px 16px var(--shadow);
+    }
+
+    .product-card.selected::after {
+      content: '✓';
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      color: var(--amber);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .product-card-qty {
+      font-family: 'Merriweather', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--brown-dark);
+      margin-bottom: 6px;
+    }
+
+    .product-card-price {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--amber-dark);
+    }
+
+    .product-card-desc {
+      font-size: 0.76rem;
+      color: var(--text-light);
+      margin-top: 4px;
+    }
+
+    /* ─── Form ──────────────────────────────────────────────── */
+    .form-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 28px;
+      box-shadow: 0 4px 24px var(--shadow);
+    }
+
+    @media (max-width: 520px) {
+      .form-card { padding: 24px 16px; border-radius: 12px; }
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .form-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    @media (max-width: 480px) {
+      .form-row-2 { grid-template-columns: 1fr; }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-mid);
+    }
+
+    label .required {
+      color: var(--red);
+      margin-left: 2px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: 'Open Sans', sans-serif;
+      color: var(--text-dark);
+      background: var(--cream);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--amber);
+      box-shadow: 0 0 0 3px rgba(212,121,42,0.15);
+      background: var(--white);
+    }
+
+    input.error, select.error, textarea.error {
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(192,57,43,0.12);
+    }
+
+    .field-error {
+      font-size: 0.8rem;
+      color: var(--red);
+      font-weight: 500;
+      display: none;
+    }
+
+    .field-error.visible { display: block; }
+
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235C3317' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 38px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    /* ─── Zone Display ──────────────────────────────────────── */
+    .zone-display {
+      background: var(--cream-dark);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      min-height: 38px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .zone-display.zone-found {
+      background: #EDF7ED;
+      border-color: #A8D5A2;
+      color: #1F6B1A;
+    }
+
+    .zone-display.zone-not-found {
+      background: #FEF3E2;
+      border-color: var(--amber);
+      color: var(--amber-dark);
+    }
+
+    /* ─── Price Summary ─────────────────────────────────────── */
+    .price-summary {
+      margin-top: 24px;
+      background: linear-gradient(135deg, #FFF5EC 0%, #FAF0E4 100%);
+      border: 2px solid var(--amber);
+      border-radius: 12px;
+      padding: 20px 22px;
+    }
+
+    .price-summary-title {
+      font-family: 'Merriweather', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--brown-dark);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .price-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 0;
+      font-size: 0.93rem;
+      color: var(--text-mid);
+    }
+
+    .price-line.total-line {
+      border-top: 2px solid var(--amber);
+      margin-top: 10px;
+      padding-top: 12px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--brown-dark);
+    }
+
+    .price-line .amount {
+      font-weight: 600;
+    }
+
+    .price-line.total-line .amount {
+      color: var(--amber-dark);
+      font-size: 1.25rem;
+    }
+
+    .price-pending {
+      color: var(--text-light);
+      font-style: italic;
+      font-size: 0.85rem;
+    }
+
+    /* ─── Submit Button ─────────────────────────────────────── */
+    .btn-submit {
+      width: 100%;
+      margin-top: 24px;
+      padding: 16px 24px;
+      background: linear-gradient(135deg, var(--amber) 0%, var(--amber-dark) 100%);
+      color: var(--white);
+      border: none;
+      border-radius: 10px;
+      font-family: 'Merriweather', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 4px 14px rgba(212,121,42,0.4);
+      letter-spacing: 0.3px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-submit:hover:not(:disabled) {
+      background: linear-gradient(135deg, var(--amber-light) 0%, var(--amber) 100%);
+      box-shadow: 0 6px 20px rgba(212,121,42,0.5);
+      transform: translateY(-1px);
+    }
+
+    .btn-submit:active:not(:disabled) {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(212,121,42,0.4);
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+
+    .btn-submit .btn-icon {
+      margin-right: 8px;
+    }
+
+    .btn-spinner {
+      display: none;
+      width: 18px;
+      height: 18px;
+      border: 2.5px solid rgba(255,255,255,0.4);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .btn-submit.loading .btn-icon { display: none; }
+    .btn-submit.loading .btn-spinner { display: inline-block; }
+
+    /* ─── Global Error ──────────────────────────────────────── */
+    .global-error {
+      display: none;
+      background: #FDEDEB;
+      border: 1px solid var(--red);
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-top: 14px;
+      font-size: 0.88rem;
+      color: var(--red);
+      font-weight: 500;
+    }
+
+    .global-error.visible { display: block; }
+
+    /* ─── Trust Bar ─────────────────────────────────────────── */
+    .trust-bar {
+      background: var(--brown-dark);
+      color: var(--cream);
+      text-align: center;
+      padding: 22px 20px;
+    }
+
+    .trust-bar p {
+      font-size: 0.93rem;
+      opacity: 0.88;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .trust-bar strong {
+      color: var(--amber-light);
+    }
+
+    /* ─── Footer ────────────────────────────────────────────── */
+    footer {
+      background: #2A1A0E;
+      color: rgba(250,246,240,0.55);
+      text-align: center;
+      padding: 20px;
+      font-size: 0.8rem;
+    }
+
+    footer a {
+      color: rgba(250,246,240,0.7);
+      text-decoration: underline;
+    }
+
+    /* ─── Misc ──────────────────────────────────────────────── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 28px 0;
+    }
+
+    .form-section-label {
+      font-family: 'Merriweather', serif;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--amber-dark);
+      font-weight: 700;
+      margin-bottom: 4px;
+      margin-top: 4px;
+    }
+
+    .stripe-note {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 12px;
+      font-size: 0.78rem;
+      color: var(--text-light);
+    }
+
+    .stripe-note svg {
+      flex-shrink: 0;
+    }
+
+    /* ─── Google Maps Autocomplete ──────────────────────────── */
+    .address-input-wrapper {
+      position: relative;
+    }
+
+    .address-input-wrapper input {
+      padding-right: 140px; /* espace pour le badge */
+    }
+
+    .maps-confirmed {
+      display: none;
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #EDF7ED;
+      color: #1F6B1A;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 12px;
+      border: 1px solid #A8D5A2;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .maps-confirmed.visible { display: block; }
+
+    .maps-hint {
+      font-size: 0.76rem;
+      color: var(--text-light);
+      margin-top: 4px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Dropdown Google Places — assortir au thème */
+    .pac-container {
+      font-family: 'Open Sans', sans-serif !important;
+      border: 1.5px solid var(--amber) !important;
+      border-radius: 8px !important;
+      box-shadow: 0 8px 24px var(--shadow) !important;
+      margin-top: 4px !important;
+      overflow: hidden;
+    }
+
+    .pac-item {
+      padding: 8px 14px !important;
+      font-size: 0.88rem !important;
+      color: var(--text-dark) !important;
+      cursor: pointer;
+      border-top: 1px solid var(--cream-dark) !important;
+    }
+
+    .pac-item:first-child { border-top: none !important; }
+    .pac-item:hover, .pac-item-selected { background: #FFF5EC !important; }
+
+    .pac-item-query {
+      font-size: 0.9rem !important;
+      color: var(--brown-dark) !important;
+      font-weight: 600;
+    }
+
+    .pac-icon { display: none !important; } /* cacher l'icône Google */
+
+    .pac-logo::after { display: none !important; } /* cacher "Powered by Google" optionnel */
+
+  </style>
+</head>
+<body>
+
+  <!-- ─── HERO ──────────────────────────────────────────────── -->
+  <header class="hero">
+    <div class="hero-logo">
+      <span class="hero-icon">🪵</span>
+      <h1>PlaisirBois</h1>
+    </div>
+    <p class="hero-tagline">Du bois franc livré chez vous dans les Cantons-de-l'Est</p>
+    <div class="hero-badges">
+      <span class="badge">🌲 Bouleau de qualité</span>
+      <span class="badge">🚚 Livraison à domicile</span>
+      <span class="badge">💳 Paiement sécurisé</span>
+    </div>
+    <div class="hero-arrow">↓</div>
+  </header>
+
+  <!-- ─── ORDER SECTION ─────────────────────────────────────── -->
+  <main>
+    <section class="order-section">
+      <h2 class="section-title">Passez votre commande</h2>
+      <p class="section-subtitle">Bois de chauffage — Bouleau franc, séché et prêt à brûler</p>
+
+      <!-- Product Selection Cards -->
+      <div class="product-cards" role="group" aria-label="Choisissez votre quantité">
+        <div class="product-card" data-qty="½ corde" data-price="175" tabindex="0" role="button" aria-pressed="false">
+          <div class="product-card-qty">½ corde</div>
+          <div class="product-card-price">175 $</div>
+          <div class="product-card-desc">Idéal pour l'appoint</div>
+        </div>
+        <div class="product-card" data-qty="1 corde" data-price="325" tabindex="0" role="button" aria-pressed="false">
+          <div class="product-card-qty">1 corde</div>
+          <div class="product-card-price">325 $</div>
+          <div class="product-card-desc">La plus populaire</div>
+        </div>
+        <div class="product-card" data-qty="1½ cordes" data-price="475" tabindex="0" role="button" aria-pressed="false">
+          <div class="product-card-qty">1½ cordes</div>
+          <div class="product-card-price">475 $</div>
+          <div class="product-card-desc">Pour tout l'hiver</div>
+        </div>
+      </div>
+
+      <!-- Main Form -->
+      <form class="form-card" id="orderForm" novalidate>
+
+        <p class="form-section-label">📋 Vos coordonnées</p>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="name">Nom complet <span class="required">*</span></label>
+            <input type="text" id="name" name="name" placeholder="Jean Tremblay" autocomplete="name" />
+            <span class="field-error" id="name-error">Veuillez entrer votre nom complet.</span>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="email">Adresse courriel <span class="required">*</span></label>
+              <input type="email" id="email" name="email" placeholder="jean@exemple.com" autocomplete="email" />
+              <span class="field-error" id="email-error">Veuillez entrer une adresse courriel valide.</span>
+            </div>
+            <div class="form-group">
+              <label for="phone">Numéro de téléphone <span class="required">*</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="450 555-1234" autocomplete="tel" />
+              <span class="field-error" id="phone-error">Veuillez entrer un numéro de téléphone.</span>
+            </div>
+          </div>
+
+          <hr class="divider" />
+          <p class="form-section-label">📍 Adresse de livraison</p>
+
+          <div class="form-group">
+            <label for="address">Adresse (rue et numéro) <span class="required">*</span></label>
+            <div class="address-input-wrapper">
+              <input type="text" id="address" name="address"
+                     placeholder="Commencez à taper votre adresse…"
+                     autocomplete="off" />
+              <span class="maps-confirmed" id="mapsConfirmed">✓ Adresse vérifiée</span>
+            </div>
+            <span class="field-error" id="address-error">Veuillez entrer votre adresse de livraison.</span>
+            <span class="maps-hint" id="maps-hint">
+              📍 Sélectionnez une suggestion pour remplir automatiquement la ville et le code postal.
+            </span>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="city">Ville <span class="required">*</span></label>
+              <input type="text" id="city" name="city" placeholder="Granby" autocomplete="address-level2" />
+              <span class="field-error" id="city-error">Veuillez entrer votre ville.</span>
+            </div>
+            <div class="form-group">
+              <label for="postal">Code postal <span class="required">*</span></label>
+              <input type="text" id="postal" name="postal" placeholder="J2G 1A1" maxlength="7" autocomplete="postal-code" style="text-transform:uppercase" />
+              <span class="field-error" id="postal-error">Veuillez entrer un code postal valide (ex : J2G 1A1).</span>
+            </div>
+          </div>
+
+          <!-- Zone display -->
+          <div class="form-group">
+            <label>Zone de livraison détectée</label>
+            <div class="zone-display" id="zoneDisplay">
+              Entrez votre code postal pour voir la zone et les frais de livraison.
+            </div>
+          </div>
+
+          <hr class="divider" />
+          <p class="form-section-label">📅 Votre commande</p>
+
+          <!-- Hidden quantity field (driven by cards) -->
+          <input type="hidden" id="quantity" name="quantity" value="" />
+
+          <div class="form-group">
+            <label for="deliveryDate">Date de livraison souhaitée <span class="required">*</span></label>
+            <input type="date" id="deliveryDate" name="deliveryDate" />
+            <span class="field-error" id="date-error">Veuillez choisir une date au moins 2 jours à partir d'aujourd'hui.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="notes">Notes pour la livraison <span style="color:var(--text-light); font-weight:400;">(optionnel)</span></label>
+            <textarea id="notes" name="notes" placeholder="Ex : Entrée à gauche de la maison, bois à déposer dans le garage…"></textarea>
+          </div>
+        </div>
+
+        <!-- Price Summary -->
+        <div class="price-summary" id="priceSummary">
+          <div class="price-summary-title">📊 Récapitulatif</div>
+          <div class="price-line">
+            <span id="summaryQtyLabel">Bois de chauffage</span>
+            <span class="amount" id="summaryBasePrice">—</span>
+          </div>
+          <div class="price-line">
+            <span id="summaryZoneLabel">Frais de livraison</span>
+            <span class="amount" id="summaryDeliveryFee">—</span>
+          </div>
+          <div class="price-line total-line">
+            <span>Total</span>
+            <span class="amount" id="summaryTotal">—</span>
+          </div>
+        </div>
+
+        <!-- Validation error for quantity + zone -->
+        <div class="global-error" id="selectionError">
+          ⚠️ Veuillez sélectionner une quantité et entrer un code postal valide avant de continuer.
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="btn-submit" id="submitBtn">
+          <span class="btn-spinner"></span>
+          <span class="btn-icon">🛒</span>
+          Commander &amp; Payer
+        </button>
+
+        <!-- Stripe note -->
+        <p class="stripe-note">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Paiement sécurisé par Stripe — vos données ne passent jamais par nos serveurs.
+        </p>
+
+        <div class="global-error" id="globalError"></div>
+
+      </form>
+    </section>
+  </main>
+
+  <!-- ─── TRUST BAR ─────────────────────────────────────────── -->
+  <div class="trust-bar">
+    <p>🪵 <strong>Livraison locale, bois de qualité</strong> — Cantons-de-l'Est &nbsp;|&nbsp; Bouleau franc séché sur place &nbsp;|&nbsp; Commande simple, paiement sécurisé</p>
+  </div>
+
+  <!-- ─── FOOTER ────────────────────────────────────────────── -->
+  <footer>
+    <p>&copy; 2026 PlaisirBois — Cantons-de-l'Est, Québec &nbsp;|&nbsp; Pour toute question : <a href="mailto:info@plaisirsbois.ca">info@plaisirsbois.ca</a></p>
+  </footer>
+
+  <!-- ─── SCRIPTS ───────────────────────────────────────────── -->
+  <script>
+    // ═══════════════════════════════════════════════════════════
+    //  CONFIGURATION — Modifier ici pour mettre à jour les prix,
+    //  les zones et l'URL du Worker Cloudflare.
+    // ═══════════════════════════════════════════════════════════
+
+    const CONFIG = {
+      // URL de votre Worker Cloudflare (remplacez après déploiement)
+      workerUrl: 'https://plaisirbois-firewood-express.gregoiredoyon.workers.dev',
+
+      // Catalogue produits
+      products: {
+        '½ corde':    { price: 175, label: '½ corde (bouleau)' },
+        '1 corde':    { price: 325, label: '1 corde (bouleau)' },
+        '1½ cordes':  { price: 475, label: '1½ cordes (bouleau)' },
+      },
+
+      // Zones de livraison : clé = préfixe postal (3 chars, majuscules)
+      // Valeur : { zone: int, fee: number, label: string }
+      deliveryZones: {
+        // Zone 1 — Livraison locale (gratuite)
+        'J2G': { zone: 1, fee: 0,   label: 'Zone 1 — Local (gratuit)' },
+        'J2H': { zone: 1, fee: 0,   label: 'Zone 1 — Local (gratuit)' },
+        'J2K': { zone: 1, fee: 0,   label: 'Zone 1 — Local (gratuit)' },
+        // Zone 2
+        'J0B': { zone: 2, fee: 25,  label: 'Zone 2 — 25 $' },
+        'J0C': { zone: 2, fee: 25,  label: 'Zone 2 — 25 $' },
+        'J0E': { zone: 2, fee: 25,  label: 'Zone 2 — 25 $' },
+        // Zone 3
+        'J0H': { zone: 3, fee: 50,  label: 'Zone 3 — 50 $' },
+        'J1M': { zone: 3, fee: 50,  label: 'Zone 3 — 50 $' },
+        'J1N': { zone: 3, fee: 50,  label: 'Zone 3 — 50 $' },
+        // Zone 4
+        'J0A': { zone: 4, fee: 75,  label: 'Zone 4 — 75 $' },
+        'J0J': { zone: 4, fee: 75,  label: 'Zone 4 — 75 $' },
+        'J1H': { zone: 4, fee: 75,  label: 'Zone 4 — 75 $' },
+        // Zone 5 — Tous les autres : voir fallback dans getZone()
+      },
+
+      // Frais de livraison par défaut (Zone 5 — hors zone principale)
+      defaultDeliveryFee: 100,
+      defaultZone: 5,
+      defaultZoneLabel: 'Zone 5 — Hors zone principale (100 $)',
+    };
+
+    // ═══════════════════════════════════════════════════════════
+    //  ÉTAT DE L'APPLICATION
+    // ═══════════════════════════════════════════════════════════
+
+    const state = {
+      selectedQty:   null,   // '½ corde' | '1 corde' | '1½ cordes'
+      basePrice:     null,   // number
+      deliveryFee:   null,   // number
+      deliveryZone:  null,   // int
+      zoneLabel:     '',     // string
+      postalCode:    '',     // string (ex: J2G 1A1)
+      postalValid:   false,
+    };
+
+    // ═══════════════════════════════════════════════════════════
+    //  UTILITAIRES
+    // ═══════════════════════════════════════════════════════════
+
+    function formatCAD(amount) {
+      if (amount === null || amount === undefined) return '—';
+      return amount.toLocaleString('fr-CA', { style: 'currency', currency: 'CAD', maximumFractionDigits: 0 }).replace('CA', '').trim();
+    }
+
+    function getPrefix(postal) {
+      // Normalise : supprime espaces, majuscules, garde les 3 premiers caractères
+      return postal.replace(/\s/g, '').toUpperCase().slice(0, 3);
+    }
+
+    function getZone(postal) {
+      const prefix = getPrefix(postal);
+      if (CONFIG.deliveryZones[prefix]) return CONFIG.deliveryZones[prefix];
+      return { zone: CONFIG.defaultZone, fee: CONFIG.defaultDeliveryFee, label: CONFIG.defaultZoneLabel };
+    }
+
+    function isValidPostal(postal) {
+      // Format canadien : A1A 1A1 ou A1A1A1
+      return /^[A-Za-z]\d[A-Za-z][\s]?\d[A-Za-z]\d$/.test(postal.trim());
+    }
+
+    function setMinDate() {
+      const d = new Date();
+      d.setDate(d.getDate() + 2);
+      const yyyy = d.getFullYear();
+      const mm   = String(d.getMonth() + 1).padStart(2, '0');
+      const dd   = String(d.getDate()).padStart(2, '0');
+      document.getElementById('deliveryDate').min = `${yyyy}-${mm}-${dd}`;
+    }
+
+    // ═══════════════════════════════════════════════════════════
+    //  MISE À JOUR DE L'INTERFACE
+    // ═══════════════════════════════════════════════════════════
+
+    function updatePriceSummary() {
+      const baseEl     = document.getElementById('summaryBasePrice');
+      const feeEl      = document.getElementById('summaryDeliveryFee');
+      const totalEl    = document.getElementById('summaryTotal');
+      const qtyLbl     = document.getElementById('summaryQtyLabel');
+      const zoneLbl    = document.getElementById('summaryZoneLabel');
+
+      if (state.selectedQty && state.basePrice !== null) {
+        qtyLbl.textContent = CONFIG.products[state.selectedQty].label;
+        baseEl.textContent = formatCAD(state.basePrice);
+      } else {
+        qtyLbl.textContent = 'Bois de chauffage';
+        baseEl.textContent = '—';
+      }
+
+      if (state.deliveryFee !== null) {
+        zoneLbl.textContent = 'Livraison — ' + state.zoneLabel;
+        feeEl.textContent   = state.deliveryFee === 0 ? 'Gratuit' : formatCAD(state.deliveryFee);
+      } else {
+        zoneLbl.textContent = 'Frais de livraison';
+        feeEl.textContent   = '—';
+      }
+
+      if (state.basePrice !== null && state.deliveryFee !== null) {
+        totalEl.textContent = formatCAD(state.basePrice + state.deliveryFee);
+      } else {
+        totalEl.textContent = '—';
+      }
+    }
+
+    function updateZoneDisplay(postal) {
+      const el = document.getElementById('zoneDisplay');
+      if (!postal || postal.trim().length < 3) {
+        el.className = 'zone-display';
+        el.textContent = 'Entrez votre code postal pour voir la zone et les frais de livraison.';
+        state.deliveryFee  = null;
+        state.deliveryZone = null;
+        state.zoneLabel    = '';
+        state.postalValid  = false;
+        updatePriceSummary();
+        return;
+      }
+      if (!isValidPostal(postal)) {
+        el.className = 'zone-display zone-not-found';
+        el.textContent = '⚠️ Code postal non reconnu — vérifiez le format (ex : J2G 1A1).';
+        state.deliveryFee  = null;
+        state.deliveryZone = null;
+        state.zoneLabel    = '';
+        state.postalValid  = false;
+        updatePriceSummary();
+        return;
+      }
+      const zoneData = getZone(postal);
+      state.deliveryFee  = zoneData.fee;
+      state.deliveryZone = zoneData.zone;
+      state.zoneLabel    = zoneData.label;
+      state.postalCode   = postal.trim().toUpperCase();
+      state.postalValid  = true;
+
+      el.className = 'zone-display zone-found';
+      const feeStr = zoneData.fee === 0 ? 'Livraison gratuite' : `Frais de livraison : ${formatCAD(zoneData.fee)}`;
+      el.innerHTML = `✅ <strong>${zoneData.label}</strong> — ${feeStr}`;
+      updatePriceSummary();
+    }
+
+    // ═══════════════════════════════════════════════════════════
+    //  SÉLECTION PRODUIT (CARTES)
+    // ═══════════════════════════════════════════════════════════
+
+    function selectProduct(card) {
+      document.querySelectorAll('.product-card').forEach(c => {
+        c.classList.remove('selected');
+        c.setAttribute('aria-pressed', 'false');
+      });
+      card.classList.add('selected');
+      card.setAttribute('aria-pressed', 'true');
+
+      const qty   = card.dataset.qty;
+      const price = parseFloat(card.dataset.price);
+      state.selectedQty = qty;
+      state.basePrice   = price;
+      document.getElementById('quantity').value = qty;
+      updatePriceSummary();
+    }
+
+    document.querySelectorAll('.product-card').forEach(card => {
+      card.addEventListener('click', () => selectProduct(card));
+      card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectProduct(card); }
+      });
+    });
+
+    // ═══════════════════════════════════════════════════════════
+    //  POSTAL CODE — LIVE UPDATE
+    // ═══════════════════════════════════════════════════════════
+
+    const postalInput = document.getElementById('postal');
+
+    postalInput.addEventListener('input', function() {
+      // Forcer majuscules
+      const raw   = this.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+      // Insérer l'espace après 3 caractères si nécessaire
+      let formatted = raw;
+      if (raw.length > 3) formatted = raw.slice(0, 3) + ' ' + raw.slice(3, 6);
+      this.value = formatted;
+      updateZoneDisplay(this.value);
+    });
+
+    postalInput.addEventListener('blur', function() {
+      updateZoneDisplay(this.value);
+    });
+
+    // ═══════════════════════════════════════════════════════════
+    //  VALIDATION DU FORMULAIRE
+    // ═══════════════════════════════════════════════════════════
+
+    function setError(fieldId, errorId, show) {
+      const field = document.getElementById(fieldId);
+      const error = document.getElementById(errorId);
+      if (show) {
+        field.classList.add('error');
+        error.classList.add('visible');
+      } else {
+        field.classList.remove('error');
+        error.classList.remove('visible');
+      }
+    }
+
+    function validateForm() {
+      let valid = true;
+
+      const name  = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const addr  = document.getElementById('address').value.trim();
+      const city  = document.getElementById('city').value.trim();
+      const postal = postalInput.value.trim();
+      const date  = document.getElementById('deliveryDate').value;
+
+      setError('name',         'name-error',    name.length < 2);
+      if (name.length < 2) valid = false;
+
+      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      setError('email',        'email-error',   !emailOk);
+      if (!emailOk) valid = false;
+
+      const phoneOk = phone.replace(/\D/g, '').length >= 10;
+      setError('phone',        'phone-error',   !phoneOk);
+      if (!phoneOk) valid = false;
+
+      setError('address',      'address-error', addr.length < 3);
+      if (addr.length < 3) valid = false;
+
+      setError('city',         'city-error',    city.length < 2);
+      if (city.length < 2) valid = false;
+
+      const postalOk = isValidPostal(postal);
+      setError('postal',       'postal-error',  !postalOk);
+      if (!postalOk) valid = false;
+
+      // Date validation
+      let dateOk = false;
+      if (date) {
+        const chosen = new Date(date + 'T00:00:00');
+        const minDate = new Date(); minDate.setDate(minDate.getDate() + 2); minDate.setHours(0,0,0,0);
+        dateOk = chosen >= minDate;
+      }
+      setError('deliveryDate', 'date-error',    !dateOk);
+      if (!dateOk) valid = false;
+
+      // Quantity & zone
+      const selectionErr = document.getElementById('selectionError');
+      if (!state.selectedQty || !state.postalValid) {
+        selectionErr.classList.add('visible');
+        valid = false;
+      } else {
+        selectionErr.classList.remove('visible');
+      }
+
+      return valid;
+    }
+
+    // Remove errors on input
+    ['name','email','phone','address','city','deliveryDate'].forEach(id => {
+      document.getElementById(id).addEventListener('input', function() {
+        this.classList.remove('error');
+        const errEl = document.getElementById(id.replace('Date','') + '-error') ||
+                      document.getElementById('date-error');
+        if (errEl) errEl.classList.remove('visible');
+      });
+    });
+
+    // ═══════════════════════════════════════════════════════════
+    //  SOUMISSION DU FORMULAIRE
+    // ═══════════════════════════════════════════════════════════
+
+    document.getElementById('orderForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      if (!validateForm()) {
+        // Scroll to first error
+        const firstErr = document.querySelector('.field-error.visible, .global-error.visible');
+        if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      const btn       = document.getElementById('submitBtn');
+      const globalErr = document.getElementById('globalError');
+
+      btn.disabled = true;
+      btn.classList.add('loading');
+      btn.textContent = ''; // will be replaced by spinner via CSS pseudo
+      btn.innerHTML = '<span class="btn-spinner"></span> Redirection vers le paiement…';
+      globalErr.classList.remove('visible');
+
+      const payload = {
+        quantity:       state.selectedQty,
+        base_price:     state.basePrice,
+        delivery_fee:   state.deliveryFee,
+        total:          state.basePrice + state.deliveryFee,
+        customer_name:  document.getElementById('name').value.trim(),
+        email:          document.getElementById('email').value.trim().toLowerCase(),
+        phone:          document.getElementById('phone').value.trim(),
+        address:        document.getElementById('address').value.trim(),
+        city:           document.getElementById('city').value.trim(),
+        postal_code:    postalInput.value.trim().toUpperCase(),
+        delivery_zone:  state.deliveryZone,
+        preferred_date: document.getElementById('deliveryDate').value,
+        notes:          document.getElementById('notes').value.trim(),
+      };
+
+      try {
+        const res = await fetch(CONFIG.workerUrl + '/create-checkout', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        if (!res.ok) {
+          const errData = await res.json().catch(() => ({}));
+          throw new Error(errData.error || `Erreur serveur (${res.status})`);
+        }
+
+        const data = await res.json();
+
+        if (data.url) {
+          window.location.href = data.url;
+        } else {
+          throw new Error('URL de paiement manquante dans la réponse.');
+        }
+
+      } catch (err) {
+        console.error('Erreur de commande :', err);
+        globalErr.textContent = '⚠️ Une erreur est survenue : ' + (err.message || 'Veuillez réessayer ou nous contacter directement.');
+        globalErr.classList.add('visible');
+        btn.disabled = false;
+        btn.classList.remove('loading');
+        btn.innerHTML = '<span class="btn-icon">🛒</span> Commander &amp; Payer';
+        globalErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+
+    // ═══════════════════════════════════════════════════════════
+    //  GOOGLE MAPS PLACES AUTOCOMPLETE
+    //  Appelé automatiquement par le script Maps (callback=initAutocomplete)
+    // ═══════════════════════════════════════════════════════════
+
+    function initAutocomplete() {
+      const addressInput = document.getElementById('address');
+
+      const autocomplete = new google.maps.places.Autocomplete(addressInput, {
+        componentRestrictions: { country: 'ca' }, // Canada seulement
+        fields: ['address_components'],
+        types:  ['address'],
+      });
+
+      // Empêcher la soumission du formulaire sur Entrée dans le champ adresse
+      addressInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') e.preventDefault();
+      });
+
+      autocomplete.addListener('place_changed', function() {
+        const place = autocomplete.getPlace();
+
+        if (!place.address_components) return; // Entrée sans sélection
+
+        let streetNumber = '';
+        let streetName   = '';
+        let city         = '';
+        let postalCode   = '';
+
+        for (const component of place.address_components) {
+          const type = component.types[0];
+          if      (type === 'street_number')                        streetNumber = component.long_name;
+          else if (type === 'route')                                streetName   = component.long_name;
+          else if (type === 'locality')                             city         = component.long_name;
+          else if (type === 'sublocality_level_1' && !city)        city         = component.long_name;
+          else if (type === 'postal_code')                          postalCode   = component.long_name;
+        }
+
+        // Remplir le champ adresse (numéro + rue)
+        const fullAddress = streetNumber ? `${streetNumber} ${streetName}` : streetName;
+        addressInput.value = fullAddress;
+        addressInput.classList.remove('error');
+        document.getElementById('address-error').classList.remove('visible');
+
+        // Remplir la ville
+        if (city) {
+          const cityField = document.getElementById('city');
+          cityField.value = city;
+          cityField.classList.remove('error');
+          document.getElementById('city-error').classList.remove('visible');
+        }
+
+        // Remplir le code postal + déclencher la détection de zone
+        if (postalCode) {
+          const raw = postalCode.replace(/\s/g, '').toUpperCase();
+          const formatted = raw.length > 3 ? raw.slice(0, 3) + ' ' + raw.slice(3, 6) : raw;
+          const postalField = document.getElementById('postal');
+          postalField.value = formatted;
+          postalField.classList.remove('error');
+          document.getElementById('postal-error').classList.remove('visible');
+          updateZoneDisplay(formatted); // déclenche la zone et le résumé de prix
+        }
+
+        // Afficher le badge vert de confirmation
+        document.getElementById('mapsConfirmed').classList.add('visible');
+        // Cacher l'indice de saisie
+        document.getElementById('maps-hint').style.display = 'none';
+      });
+
+      // Si l'utilisateur retape manuellement → masquer le badge
+      addressInput.addEventListener('input', function() {
+        document.getElementById('mapsConfirmed').classList.remove('visible');
+        document.getElementById('maps-hint').style.display = '';
+      });
+    }
+
+    // Exposer globalement pour le callback Maps
+    window.initAutocomplete = initAutocomplete;
+
+    // Fallback silencieux si la clé API est invalide ou absente
+    window.gm_authFailure = function() {
+      const hint = document.getElementById('maps-hint');
+      if (hint) hint.textContent = '📍 Saisie manuelle — entrez l\'adresse, la ville et le code postal.';
+    };
+
+    // ═══════════════════════════════════════════════════════════
+    //  INIT
+    // ═══════════════════════════════════════════════════════════
+    setMinDate();
+    updatePriceSummary();
+
+  </script>
+
+  <!--
+    Google Maps Places API
+    ──────────────────────────────────────────────────────────────
+    Remplacez YOUR_GOOGLE_MAPS_API_KEY par votre clé API.
+
+    Pour obtenir une clé :
+      1. https://console.cloud.google.com
+      2. Créez un projet → Activer "Places API" + "Maps JavaScript API"
+      3. Créez une clé API → Restreignez-la à votre domaine Cloudflare Pages
+
+    Coût : gratuit jusqu'à ~$200/mois de crédit (~28 000 requêtes Autocomplete).
+  -->
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places&callback=initAutocomplete&language=fr&region=CA"
+    async
+    defer>
+  </script>
+</body>
+</html>
